@@ -9,7 +9,6 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	mcputils "binance-mcp/pkg/helpers"
 	"github.com/mark3labs/mcp-go/mcp"
 )
 
@@ -48,7 +47,7 @@ func TestPostSapiV1SimpleEarnLockedSetAutoSubscribeHandler(t *testing.T) {
 		defer ts.Close()
 
 		t.Setenv("MCP__UPSTREAM__DEFAULT__ENDPOINT", ts.URL)
-		mcputils.LoadConfig("binance-mcp")
+		installTestConfig(t, "binance-mcp")
 
 		req := mcp.CallToolRequest{
 			Params: mcp.CallToolParams{
@@ -74,7 +73,7 @@ func TestPostSapiV1SimpleEarnLockedSetAutoSubscribeHandler(t *testing.T) {
 		defer ts.Close()
 
 		t.Setenv("MCP__UPSTREAM__DEFAULT__ENDPOINT", ts.URL)
-		mcputils.LoadConfig("binance-mcp")
+		installTestConfig(t, "binance-mcp")
 
 		req := mcp.CallToolRequest{
 			Params: mcp.CallToolParams{
@@ -98,7 +97,7 @@ func TestPostSapiV1SimpleEarnLockedSetAutoSubscribeHandler(t *testing.T) {
 		defer ts.Close()
 
 		t.Setenv("MCP__UPSTREAM__DEFAULT__ENDPOINT", ts.URL)
-		mcputils.LoadConfig("binance-mcp")
+		installTestConfig(t, "binance-mcp")
 
 		req := mcp.CallToolRequest{
 			Params: mcp.CallToolParams{
